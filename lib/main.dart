@@ -78,6 +78,8 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
+//this is class,forexoample ya change kia  h ap ny code mai to
+//esko push krna h.
 class NavBarPage extends StatefulWidget {
   NavBarPage({Key key, this.initialPage}) : super(key: key);
 
