@@ -54,6 +54,7 @@ class _TikTakVideoPlayerState extends State<TikTakVideoPlayer> {
     _videoPlayerController.dispose();
     _chewieController.dispose();
     super.dispose();
+    //ya phly sy disposed h ya ap ny kia ?pehle s mne bs apni apis ko userID de k code chlaya to ye error
   }
 
   double get width => widget.width == null || widget.width >= double.infinity
@@ -69,7 +70,6 @@ class _TikTakVideoPlayerState extends State<TikTakVideoPlayer> {
       kDefaultAspectRatio;
 
   Future initializePlayer() async {
-
     _videoPlayerController = widget.videoType == VideoType.network
         ? VideoPlayerController.network(widget.path)
         : VideoPlayerController.asset(widget.path);

@@ -23,8 +23,10 @@ class SingleVideoSlidesWidget extends StatefulWidget {
 class _SingleVideoSlidesWidgetState extends State<SingleVideoSlidesWidget> {
   initState() {
     super.initState();
-    final videoData=context.read<VideosProvider>().getVideosModel;
+    final videoData=context.read<VideosProvider>().getVideosModel;//ya ks liyay use bhla
   }
+  //iska kehrien..??
+  //nh aik orth
 
   @override
   Widget build(BuildContext context) {

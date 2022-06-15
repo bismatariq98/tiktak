@@ -41,7 +41,7 @@ class Datum {
     this.user,
     this.createdAt,
     this.likerIds,
-  });
+  }); //ye dkhem video model pehle s bnna he iska rspnse dkhata usme ids ati hen or isne b string use kii hui
 
   String id;
   String videoDescription;
@@ -60,7 +60,7 @@ class Datum {
             ? null
             : List<String>.from(json["liker_ids"].map((x) => x)),
       );
-
+//error kb ata ?ye kse chl gya??
   Map<String, dynamic> toJson() => {
         "id": id,
         "video_description": videoDescription,

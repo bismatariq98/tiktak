@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:tik_tak/providers/authProvider/authProvider.dart';
 import 'package:provider/provider.dart';
 import '../main.dart';
@@ -26,6 +27,22 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
   TextEditingController textController5;
   bool passwordVisibility2;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  void _showErrorDialogue(String msg) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text("An Error Occured"),
+              content: Text(msg),
+              actions: <Widget>[
+                FloatingActionButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            ));
+  }
 
   @override
   void initState() {
@@ -39,21 +56,9 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
     passwordVisibility2 = false;
   }
 
-  Future<void> _submit() async {
-    try {
-      await Provider.of<Authentication>(context, listen: false).signup(
-          textController1.text,
-          textController3.text,
-          textController2.text,
-          textController5.text,
-          context);
-    } catch (error) {
-      throw error;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    AuthProvider auth = Provider.of<AuthProvider>(context);
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: TikTakTheme.secondaryColor,
@@ -410,7 +415,14 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0, 10, 0, 20),
                                 child: FFButtonWidget(
-                                  onPressed: () => {_submit()},
+                                  onPressed: () {
+                                    auth.register(
+                                        textController1.text,
+                                        textController2.text,
+                                        textController3.text,
+                                        textController5.text,
+                                        context);
+                                  },
                                   text: 'Sign Up',
                                   options: FFButtonOptions(
                                     width: 300,

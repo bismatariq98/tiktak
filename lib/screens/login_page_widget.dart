@@ -31,17 +31,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
     passwordVisibility = false;
   }
 
-  Future<void> _submit() async {
-    try {
-      await Provider.of<Authentication>(context, listen: false)
-          .login(textController1.text, textController2.text, context);
-    } catch (error) {
-      throw error;
-    }
-  }
+  // Future<void> _submit() async {
+  //   try {
+  //     final data = Provider.of<Authentication>(context);
+  //     data.getUserData(textController1.text, textController2.text, context);
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider auth =
+        Provider.of<AuthProvider>(context); //instance of provider
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: TikTakTheme.secondaryColor,
@@ -226,7 +228,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0, 10, 0, 20),
                                 child: FFButtonWidget(
-                                  onPressed: () => {_submit()},
+                                  onPressed: () {
+                                    auth.login(context);
+                                  },
                                   text: 'Sign in',
                                   options: FFButtonOptions(
                                     width: 300,

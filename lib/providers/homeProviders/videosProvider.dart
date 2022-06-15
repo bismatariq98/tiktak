@@ -26,7 +26,6 @@ class VideosProvider with ChangeNotifier {
       } else {
         throw Exception('something wrong');
       }
-      int b = 9;
     } catch (e) {
       print(e);
     }

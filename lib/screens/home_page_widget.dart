@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import '../theme/tik_tak_theme.dart';
 
 class HomePageWidget extends StatefulWidget {
+  HomePageWidget({Key key}) : super(key: key);
+
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
 }
@@ -39,6 +41,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     scrollDirection: Axis.vertical,
                     itemCount: data.getVideosModel.data.length,
                     itemBuilder: (context, index) {
+                      //ab  VideoSlidesWidget is page p pass kruga
                       return VideoSlidesWidget(
                         url: data.getVideosModel.data[index].videoFile,
                         posIid: data.getVideosModel.data[index].id,

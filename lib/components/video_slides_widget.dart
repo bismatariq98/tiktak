@@ -3,7 +3,7 @@ import 'package:like_button/like_button.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tik_tak/constants/globals.dart';
-import 'package:tik_tak/models/homeModels/loginResponseModel.dart';
+import 'package:tik_tak/models/homeModels/userModel.dart';
 import 'package:tik_tak/providers/authProvider/authProvider.dart';
 import 'package:tik_tak/providers/currentUSer/currentUserProvider.dart';
 import 'package:tik_tak/providers/homeProviders/videosProvider.dart';
@@ -39,56 +39,14 @@ class VideoSlidesWidget extends StatefulWidget {
 }
 
 class _VideoSlidesWidgetState extends State<VideoSlidesWidget> {
-  SharedPreferenceHelper sharedPreferenceHelper = SharedPreferenceHelper();
-  String userId;
   bool isLiked = false;
-
-  getInfo() {
-    setState(() async {
-      userId = await sharedPreferenceHelper.getCurrentUserID();
-      print("I am your1 ${userId}");
-    });
-  }
-
-  @override
-  initState() {
-    super.initState();
-    getInfo();
-    int b = 0;
-    //checkAlreadyLiked();
-    //readAllLikes();
-  }
-
-  // Future<void> readAllLikes() async {
-  //   try {
-  //     await Provider.of<LikeProvider>(context, listen: false)
-  //         .getLikes(context, widget.posIid);
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // }
-
-  // Future<void> likeMeButton() async {
-  //   try {
-  //     await Provider.of<LikeProvider>(context, listen: false).dolike(
-  //         context, widget.posIid, currentUserID);
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // }
-
-  // checkAlreadyLiked() {
-  //   for (int i = 0; i < widget.likerIds.length; i++) {
-  //     if (widget.likerIds[0] == currentUserID) {
-  //       setState(() {
-  //         return isLiked = true;
-  //       });
-  //     }
-  //   }
-  // }
-
+  VideosProvider vidDetails = VideosProvider();
+  userModel userDetails = userModel();
   @override
   Widget build(context) {
+    VideosProvider vid = context.read<VideosProvider>(); //ye or nche wla
+    AuthProvider auth = context.read<AuthProvider>();
+    userDetails = auth.userDataID;
     return Stack(
       children: [
         Container(
@@ -149,25 +107,25 @@ class _VideoSlidesWidgetState extends State<VideoSlidesWidget> {
                               children: [
                                 GestureDetector(
                                   onTap: () async {
-                                    // if (isLiked == true) {
-                                    //   try {
-                                    //     await Provider.of<LikeProvider>(context,
-                                    //             listen: false)
-                                    //         .deleteLike(context, widget.posIid,
-                                    //             userData.read('count'));
-                                    //   } catch (error) {
-                                    //     throw error;
-                                    //   }
-                                    // } else {
-                                    //   try {
-                                    //     await Provider.of<LikeProvider>(context,
-                                    //             listen: false)
-                                    //         .dolike(context, widget.posIid,
-                                    //             userData.read('count'));
-                                    //   } catch (error) {
-                                    //     throw error;
-                                    //   }
-                                    // }
+                                    if (isLiked == true) {
+                                      try {
+                                        await Provider.of<LikeProvider>(context,
+                                                listen: false)
+                                            .deleteLike(context, widget.posIid,
+                                                userDetails.data.userId);
+                                      } catch (error) {
+                                        throw error;
+                                      }
+                                    } else {
+                                      try {
+                                        await Provider.of<LikeProvider>(context,
+                                                listen: false)
+                                            .dolike(context, widget.posIid,
+                                                userDetails.data.userId);
+                                      } catch (error) {
+                                        throw error;
+                                      }
+                                    }
                                   },
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -190,7 +148,7 @@ class _VideoSlidesWidgetState extends State<VideoSlidesWidget> {
                                 ),
                                 Text(
                                   "12.3k",
-                                  // "${widget.likerIds.length}",
+                                  //"${likerIds.length}",
                                   style: TikTakTheme.bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Color(0xFFFDFDFD),

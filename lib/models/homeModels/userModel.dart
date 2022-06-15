@@ -1,17 +1,21 @@
 // To parse this JSON data, do
 //
-//     final loginResponseModel = loginResponseModelFromJson(jsonString);
+//     final userModel = userModelFromJson(jsonString);
 
 import 'dart:convert';
 
-LoginResponseModel loginResponseModelFromJson(String str) =>
-    LoginResponseModel.fromJson(json.decode(str));
+userModel userModelFromJson(String str) =>
+    userModel.fromJson(json.decode(str)); // ya use hta h jason ko
+//body mai vovert krny k luyay yani aik variable mai stor krvany k luyay for further use puch rahiaen k btaa raheinnn?
+//pch rhi hu ,,pta ni...ye to auto generated model he...api ka response aik website h uspe daaalo wo khudi model bna deta he..
+// i know  bht sari web h dart to jason ki
+// ab mai ny ap sy classess lia krni h :)
+//acha use
 
-String loginResponseModelToJson(LoginResponseModel data) =>
-    json.encode(data.toJson());
+String userModelToJson(userModel data) => json.encode(data.toJson());
 
-class LoginResponseModel {
-  LoginResponseModel({
+class userModel {
+  userModel({
     this.success,
     this.message,
     this.data,
@@ -21,8 +25,7 @@ class LoginResponseModel {
   String message;
   Data data;
 
-  factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
-      LoginResponseModel(
+  factory userModel.fromJson(Map<String, dynamic> json) => userModel(
         success: json["success"],
         message: json["message"],
         data: Data.fromJson(json["data"]),

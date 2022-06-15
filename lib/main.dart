@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tik_tak/providers/authProvider/authProvider.dart';
 import 'package:tik_tak/providers/currentUSer/currentUserProvider.dart';
 import 'package:tik_tak/providers/homeProviders/videosProvider.dart';
@@ -27,6 +26,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool displaySplashImage = true;
   @override
+  //void state
   void initState() {
     super.initState();
     Future.delayed(
@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
           create: (_) => currentUserProvider(),
         ),
         ChangeNotifierProvider(
-          create: (_) => Authentication(),
+          create: (_) => AuthProvider(),
         ),
         ChangeNotifierProvider(
           create: (_) => LikeProvider(),
@@ -81,10 +81,11 @@ class _MyAppState extends State<MyApp> {
 //this is class,forexoample ya change kia  h ap ny code mai to
 //esko push krna h.
 class NavBarPage extends StatefulWidget {
-  NavBarPage({Key key, this.initialPage}) : super(key: key);
+  NavBarPage({Key key, this.initialPage, this.userID}) : super(key: key);
 
   final String initialPage;
-
+  String userID;
+//string
   @override
   _NavBarPageState createState() => _NavBarPageState();
 }
