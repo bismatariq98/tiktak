@@ -11,8 +11,8 @@ import '../theme/tik_tak_widgets.dart';
 import 'package:provider/provider.dart';
 
 class ChatRequestWidget extends StatefulWidget {
-  const ChatRequestWidget({Key key}) : super(key: key);
-
+  // ChatRequestWidget(this.currentUserID, this.otherUserID);
+  // String currentUserID, otherUserID;
   @override
   _ChatRequestWidgetState createState() => _ChatRequestWidgetState();
 }

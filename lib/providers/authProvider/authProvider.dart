@@ -102,7 +102,7 @@ class AuthProvider extends ChangeNotifier {
 
   Future<userModel> login(context) async {
     final Map<String, String> body = {
-      'email': 'test@gmail.com',
+      'email': 'test@test.com',
       'password': 'test'
     };
     final response = await http.post(
@@ -112,9 +112,9 @@ class AuthProvider extends ChangeNotifier {
           "Content-Type": "application/x-www-form-urlencoded",
         });
     if (response.statusCode == 200) {
-      userModel userData = userModelFromJson(response.body);
+      userDataID = userModelFromJson(response.body);
       notify();
-      final isSignedUp = userData.success;
+      final isSignedUp = userDataID.success;
       if (isSignedUp == 'true') {
         await Navigator.pushAndRemoveUntil(
           context,

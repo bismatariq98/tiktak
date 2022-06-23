@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,9 @@ import 'package:tik_tak/screens/upload_status_page_widget.dart';
 import 'package:tik_tak/screens/user_profile_widget.dart';
 import 'package:tik_tak/theme/tik_tak_theme.dart';
 
-void main() async {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(MyApp());
 }
 

@@ -4,14 +4,7 @@
 
 import 'dart:convert';
 
-userModel userModelFromJson(String str) =>
-    userModel.fromJson(json.decode(str)); // ya use hta h jason ko
-//body mai vovert krny k luyay yani aik variable mai stor krvany k luyay for further use puch rahiaen k btaa raheinnn?
-//pch rhi hu ,,pta ni...ye to auto generated model he...api ka response aik website h uspe daaalo wo khudi model bna deta he..
-// i know  bht sari web h dart to jason ki
-// ab mai ny ap sy classess lia krni h :)
-//acha use
-
+userModel userModelFromJson(String str) => userModel.fromJson(json.decode(str));
 String userModelToJson(userModel data) => json.encode(data.toJson());
 
 class userModel {
