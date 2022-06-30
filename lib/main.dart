@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:tik_tak/providers/authProvider/authProvider.dart';
+import 'package:tik_tak/providers/chatProvider.dart';
 import 'package:tik_tak/providers/currentUSer/currentUserProvider.dart';
 import 'package:tik_tak/providers/homeProviders/videosProvider.dart';
 import 'package:tik_tak/providers/likeProvider/likeProvider.dart';
@@ -46,13 +47,16 @@ class _MyAppState extends State<MyApp> {
           create: (_) => VideosProvider(),
         ),
         ChangeNotifierProvider(
-          create: (_) => currentUserProvider(),
+          create: (_) => CurrentUserProvider(),
         ),
         ChangeNotifierProvider(
           create: (_) => AuthProvider(),
         ),
         ChangeNotifierProvider(
           create: (_) => LikeProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ChatProvider(),
         ),
       ],
       child: MaterialApp(

@@ -219,30 +219,30 @@ class _ChatRequestWidgetState extends State<ChatRequestWidget> {
                                                           TextButton(
                                                             onPressed:
                                                                 () async {
-                                                              Navigator.pop(
-                                                                  alertDialogContext);
-                                                              await Navigator
-                                                                  .pushAndRemoveUntil(
-                                                                context,
-                                                                PageTransition(
-                                                                  type:
-                                                                      PageTransitionType
-                                                                          .scale,
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .bottomCenter,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          400),
-                                                                  reverseDuration:
-                                                                      Duration(
-                                                                          milliseconds:
-                                                                              400),
-                                                                  child:
-                                                                      SinglechatPageWidget(),
-                                                                ),
-                                                                (r) => false,
-                                                              );
+                                                              // Navigator.pop(
+                                                              //     alertDialogContext);
+                                                              // await Navigator
+                                                              //     .pushAndRemoveUntil(
+                                                              //   context,
+                                                              //   PageTransition(
+                                                              //     type:
+                                                              //         PageTransitionType
+                                                              //             .scale,
+                                                              //     alignment:
+                                                              //         Alignment
+                                                              //             .bottomCenter,
+                                                              //     duration: Duration(
+                                                              //         milliseconds:
+                                                              //             400),
+                                                              //     reverseDuration:
+                                                              //         Duration(
+                                                              //             milliseconds:
+                                                              //                 400),
+                                                              //     child:
+                                                              //         SinglechatPageWidget(),
+                                                              //   ),
+                                                              //   (r) => false,
+                                                              // );
                                                             },
                                                             child:
                                                                 Text('Confirm'),

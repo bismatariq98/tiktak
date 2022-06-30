@@ -3,19 +3,24 @@ import 'package:like_button/like_button.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tik_tak/constants/globals.dart';
+import 'package:tik_tak/models/homeModels/chatModel.dart';
+import 'package:tik_tak/models/homeModels/currentUserModel.dart';
 import 'package:tik_tak/models/homeModels/userModel.dart';
 import 'package:tik_tak/providers/authProvider/authProvider.dart';
+import 'package:tik_tak/providers/chatProvider.dart';
 import 'package:tik_tak/providers/currentUSer/currentUserProvider.dart';
 import 'package:tik_tak/providers/homeProviders/videosProvider.dart';
 import 'package:tik_tak/providers/likeProvider/likeProvider.dart';
 import 'package:tik_tak/providers/sharedPreference.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:tik_tak/screens/singlechat_page_widget.dart';
 import '../screens/chat_request_widget.dart';
 import '../screens/review_info_page_widget.dart';
 import '../screens/user_public_profle_widget.dart';
 import '../theme/tik_tak_theme.dart';
 import '../theme/tik_tak_util.dart';
 import '../theme/tik_tak_video_player.dart';
+import 'dart:convert';
 
 class VideoSlidesWidget extends StatefulWidget {
   VideoSlidesWidget(
@@ -54,10 +59,31 @@ class _VideoSlidesWidgetState extends State<VideoSlidesWidget> {
     }
   }
 
+  getMessages() async {
+    ChatModel chatDetails = context.read<ChatProvider>().chatDetails;
+    await Navigator.pushAndRemoveUntil(
+      context,
+      PageTransition(
+        type: PageTransitionType.scale,
+        alignment: Alignment.bottomCenter,
+        duration: Duration(milliseconds: 400),
+        reverseDuration: Duration(milliseconds: 400),
+        child: SinglechatPageWidget(chatDetails.data, widget.user),
+      ),
+      (r) => false,
+    );
+    int b = 9;
+  }
+
   @override
   void initState() {
     AuthProvider auth = context.read<AuthProvider>();
     userDetails = auth.userDataID;
+    final loggedUserdata =
+        Provider.of<CurrentUserProvider>(context, listen: false);
+    loggedUserdata.getData(context, userDetails.data.userId);
+    final chatdata = Provider.of<ChatProvider>(context, listen: false);
+    chatdata.getChatData(context, userDetails.data.userId, widget.user);
     //checkAlreadyLiked();
     // TODO: implement initState
     super.initState();
@@ -66,6 +92,7 @@ class _VideoSlidesWidgetState extends State<VideoSlidesWidget> {
   @override
   Widget build(context) {
     VideosProvider vid = context.read<VideosProvider>();
+    CurrentUserProvider currentUser = context.read<CurrentUserProvider>();
     int b = 0;
     return Stack(
       children: [
@@ -267,20 +294,21 @@ class _VideoSlidesWidgetState extends State<VideoSlidesWidget> {
                                       0, 20, 0, 0),
                                   child: InkWell(
                                     onTap: () async {
-                                      await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.scale,
-                                            alignment: Alignment.bottomCenter,
-                                            duration:
-                                                Duration(milliseconds: 400),
-                                            reverseDuration:
-                                                Duration(milliseconds: 400),
-                                            child: ChatRequestWidget(
-                                                // userDetails.data.userId,
-                                                // widget.user),
-                                                ),
-                                          ));
+                                      getMessages();
+                                      // await Navigator.push(
+                                      //     context,
+                                      //     PageTransition(
+                                      //       type: PageTransitionType.scale,
+                                      //       alignment: Alignment.bottomCenter,
+                                      //       duration:
+                                      //           Duration(milliseconds: 400),
+                                      //       reverseDuration:
+                                      //           Duration(milliseconds: 400),
+                                      //       child: ChatRequestWidget(
+                                      //           // userDetails.data.userId,
+                                      //           // widget.user),
+                                      //           ),
+                                      //     ));
                                     },
                                     child: Container(
                                       width: 50,

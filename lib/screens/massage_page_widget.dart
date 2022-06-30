@@ -153,18 +153,18 @@ class _MassagePageWidgetState extends State<MassagePageWidget> {
                                         0, 2, 0, 2),
                                     child: InkWell(
                                       onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.scale,
-                                            alignment: Alignment.bottomCenter,
-                                            duration:
-                                                Duration(milliseconds: 400),
-                                            reverseDuration:
-                                                Duration(milliseconds: 400),
-                                            child: SinglechatPageWidget(),
-                                          ),
-                                        );
+                                        // await Navigator.push(
+                                        //   context,
+                                        //   PageTransition(
+                                        //     type: PageTransitionType.scale,
+                                        //     alignment: Alignment.bottomCenter,
+                                        //     duration:
+                                        //         Duration(milliseconds: 400),
+                                        //     reverseDuration:
+                                        //         Duration(milliseconds: 400),
+                                        //         child: SinglechatPageWidget(),
+                                        //   ),
+                                        // );
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -293,18 +293,18 @@ class _MassagePageWidgetState extends State<MassagePageWidget> {
                                         0, 2, 0, 2),
                                     child: InkWell(
                                       onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.scale,
-                                            alignment: Alignment.bottomCenter,
-                                            duration:
-                                                Duration(milliseconds: 400),
-                                            reverseDuration:
-                                                Duration(milliseconds: 400),
-                                            child: SinglechatPageWidget(),
-                                          ),
-                                        );
+                                        //   await Navigator.push(
+                                        //     context,
+                                        //     PageTransition(
+                                        //       type: PageTransitionType.scale,
+                                        //       alignment: Alignment.bottomCenter,
+                                        //       duration:
+                                        //           Duration(milliseconds: 400),
+                                        //       reverseDuration:
+                                        //           Duration(milliseconds: 400),
+                                        //       child: SinglechatPageWidget(),
+                                        //     ),
+                                        //   );
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -433,18 +433,18 @@ class _MassagePageWidgetState extends State<MassagePageWidget> {
                                         0, 2, 0, 2),
                                     child: InkWell(
                                       onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.scale,
-                                            alignment: Alignment.bottomCenter,
-                                            duration:
-                                                Duration(milliseconds: 400),
-                                            reverseDuration:
-                                                Duration(milliseconds: 400),
-                                            child: SinglechatPageWidget(),
-                                          ),
-                                        );
+                                        // await Navigator.push(
+                                        //   context,
+                                        //   PageTransition(
+                                        //     type: PageTransitionType.scale,
+                                        //     alignment: Alignment.bottomCenter,
+                                        //     duration:
+                                        //         Duration(milliseconds: 400),
+                                        //     reverseDuration:
+                                        //         Duration(milliseconds: 400),
+                                        //     child: SinglechatPageWidget(),
+                                        //   ),
+                                        // );
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -573,18 +573,18 @@ class _MassagePageWidgetState extends State<MassagePageWidget> {
                                         0, 2, 0, 2),
                                     child: InkWell(
                                       onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.scale,
-                                            alignment: Alignment.bottomCenter,
-                                            duration:
-                                                Duration(milliseconds: 400),
-                                            reverseDuration:
-                                                Duration(milliseconds: 400),
-                                            child: SinglechatPageWidget(),
-                                          ),
-                                        );
+                                        // await Navigator.push(
+                                        //   context,
+                                        //   PageTransition(
+                                        //     type: PageTransitionType.scale,
+                                        //     alignment: Alignment.bottomCenter,
+                                        //     duration:
+                                        //         Duration(milliseconds: 400),
+                                        //     reverseDuration:
+                                        //         Duration(milliseconds: 400),
+                                        //     child: SinglechatPageWidget(),
+                                        //   ),
+                                        // );
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -713,18 +713,18 @@ class _MassagePageWidgetState extends State<MassagePageWidget> {
                                         0, 2, 0, 2),
                                     child: InkWell(
                                       onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.scale,
-                                            alignment: Alignment.bottomCenter,
-                                            duration:
-                                                Duration(milliseconds: 400),
-                                            reverseDuration:
-                                                Duration(milliseconds: 400),
-                                            child: SinglechatPageWidget(),
-                                          ),
-                                        );
+                                        // await Navigator.push(
+                                        //   context,
+                                        //   PageTransition(
+                                        //     type: PageTransitionType.scale,
+                                        //     alignment: Alignment.bottomCenter,
+                                        //     duration:
+                                        //         Duration(milliseconds: 400),
+                                        //     reverseDuration:
+                                        //         Duration(milliseconds: 400),
+                                        //     child: SinglechatPageWidget(),
+                                        //   ),
+                                        // );
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,

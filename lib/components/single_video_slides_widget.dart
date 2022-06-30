@@ -11,6 +11,7 @@ import '../screens/user_public_profle_widget.dart';
 import '../theme/tik_tak_theme.dart';
 import '../theme/tik_tak_util.dart';
 import '../theme/tik_tak_video_player.dart';
+import 'package:http/http.dart' as http;
 
 class SingleVideoSlidesWidget extends StatefulWidget {
   const SingleVideoSlidesWidget({Key key}) : super(key: key);
@@ -25,6 +26,20 @@ class _SingleVideoSlidesWidgetState extends State<SingleVideoSlidesWidget> {
     super.initState();
     final videoData =
         context.read<VideosProvider>().getVideosModel; //ya ks liyay use bhla
+  }
+
+  checkChatroom() async {
+    final Map<String, String> body = {
+      'user_one_id': '3',
+      'user_two_id': '5',
+    };
+    final response = await http.post(
+        Uri.parse('https://flutterapp.5techsol.com/api/create_chat_room.php'),
+        body: body,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        });
+    var b = response.body;
   }
 
   @override
@@ -194,6 +209,7 @@ class _SingleVideoSlidesWidgetState extends State<SingleVideoSlidesWidget> {
                                       0, 20, 0, 0),
                                   child: InkWell(
                                     onTap: () async {
+                                      checkChatroom();
                                       await Navigator.push(
                                         context,
                                         PageTransition(
